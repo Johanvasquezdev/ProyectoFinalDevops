@@ -69,7 +69,7 @@ const Benefits = () => {
             <div 
               key={index}
               ref={el => cardsRef.current[index] = el}
-              className="bg-[#112240] p-8 rounded-xl border border-[var(--color-devops-gray)]/20 hover:border-[var(--color-devops-cyan)]/50 transition-colors duration-300 group"
+              className="bg-[var(--color-devops-blue)]/40 backdrop-blur-md p-8 rounded-xl border border-white/10 hover:bg-[var(--color-devops-blue)]/60 hover:border-[var(--color-devops-cyan)]/50 transition-all duration-300 group shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
             >
               <div className="bg-[#0A192F] w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 {benefit.icon}

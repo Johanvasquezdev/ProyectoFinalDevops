@@ -134,7 +134,7 @@ const Timeline = () => {
           {concepts.map((concept) => (
             <SwiperSlide 
               key={concept.id} 
-              className="bg-[#112240] rounded-2xl border border-[var(--color-devops-cyan)]/20 flex flex-col items-center text-center shadow-2xl p-8"
+              className="bg-[var(--color-devops-blue)]/40 backdrop-blur-md rounded-2xl border border-white/10 flex flex-col items-center text-center shadow-[0_8px_32px_rgba(0,0,0,0.3)] p-8"
               // Usamos style directo o clases estrictas de tailwind v4 para forzar el tamaño y que no se estire
               style={{ width: '320px', height: '420px', display: 'flex' }}
             >

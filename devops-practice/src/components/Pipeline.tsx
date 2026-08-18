@@ -68,7 +68,7 @@ const Pipeline = () => {
                 {/* Línea conectora horizontal (oculta en el último elemento) */}
                 {index < steps.length - 1 && (
                   <div className="hidden md:block absolute top-10 left-[50%] w-full h-1 z-0">
-                    <div className="absolute inset-0 bg-[#112240]"></div>
+                    <div className="absolute inset-0 bg-[var(--color-devops-blue)]/30 backdrop-blur-sm rounded-full"></div>
                     <div 
                       ref={el => linesRef.current[index] = el}
                       className="absolute inset-y-0 left-0 bg-gradient-to-r from-[var(--color-devops-cyan)] to-[var(--color-devops-lavender)]"
@@ -78,7 +78,7 @@ const Pipeline = () => {
 
                 {/* Línea conectora vertical para versión móvil */}
                 {index < steps.length - 1 && (
-                  <div className="md:hidden absolute top-[5.5rem] left-[50%] -translate-x-1/2 h-16 w-1 z-0 bg-[#112240]">
+                  <div className="md:hidden absolute top-[5.5rem] left-[50%] -translate-x-1/2 h-16 w-1 z-0 bg-[var(--color-devops-blue)]/30 backdrop-blur-sm rounded-full">
                     <div 
                       ref={el => linesRef.current[index] = el}
                       className="absolute inset-x-0 top-0 w-full bg-gradient-to-b from-[var(--color-devops-cyan)] to-[var(--color-devops-lavender)]"
@@ -91,7 +91,7 @@ const Pipeline = () => {
                   ref={el => stepsRef.current[index] = el}
                   className="flex flex-col items-center z-10"
                 >
-                  <div className={`w-20 h-20 rounded-full bg-[#112240] border-2 border-[var(--color-devops-cyan)] flex items-center justify-center shadow-[0_0_15px_rgba(100,255,218,0.2)] mb-4 ${step.color} relative z-10`}>
+                  <div className={`w-20 h-20 rounded-full bg-[var(--color-devops-blue)]/60 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-[0_0_15px_rgba(100,255,218,0.2)] mb-4 ${step.color} relative z-10`}>
                     {step.icon}
                   </div>
                   <span className="font-mono font-bold text-white tracking-wider bg-[var(--color-devops-bg)] px-2">{step.name}</span>

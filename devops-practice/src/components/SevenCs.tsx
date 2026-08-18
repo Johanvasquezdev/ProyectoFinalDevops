@@ -65,7 +65,7 @@ const SevenCs = () => {
               ref={el => cardsRef.current[index] = el}
               className="relative w-40 h-40 md:w-48 md:h-48 group perspective-1000"
             >
-              <div className="w-full h-full relative rounded-full bg-[#112240] flex flex-col items-center justify-center p-4 border-4 border-transparent bg-clip-padding group-hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+              <div className="w-full h-full relative rounded-full bg-[var(--color-devops-blue)]/50 backdrop-blur-md flex flex-col items-center justify-center p-4 border border-white/10 bg-clip-padding group-hover:scale-105 transition-transform duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
                 {/* Gradient Border Trick */}
                 <div className={`absolute inset-0 -z-10 rounded-full bg-gradient-to-br ${phase.color} opacity-80 group-hover:opacity-100 blur-[2px]`}></div>
                 <div className="absolute inset-1 bg-[#0A192F] rounded-full -z-10"></div>

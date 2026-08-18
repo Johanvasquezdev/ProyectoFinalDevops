@@ -78,7 +78,7 @@ const ToolsGrid = () => {
             <div 
               key={index}
               ref={el => itemsRef.current[index] = el}
-              className="bg-[#112240] rounded-2xl p-6 border border-[var(--color-devops-gray)]/20 hover:border-[var(--color-devops-cyan)]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_-15px_rgba(100,255,218,0.3)] flex flex-col group cursor-default"
+              className="bg-[var(--color-devops-blue)]/40 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:bg-[var(--color-devops-blue)]/60 hover:border-[var(--color-devops-cyan)]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_-15px_rgba(100,255,218,0.3)] flex flex-col group cursor-default shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
             >
               <div className="flex items-center mb-4 space-x-4">
                 <div className="bg-[#0A192F] p-3 rounded-xl border border-[var(--color-devops-gray)]/10 group-hover:scale-110 transition-transform duration-300">

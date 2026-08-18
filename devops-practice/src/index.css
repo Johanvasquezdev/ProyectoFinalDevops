@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-devops-blue: #0A192F;
+  --color-devops-cyan: #64FFDA;
+  --color-devops-gray: #8892B0;
+  --color-devops-lightgray: #CCD6F6;
+  --color-devops-bg: #0B1120;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-devops-bg);
+  color: var(--color-devops-lightgray);
+  overflow-x: hidden;
+}
+
+/* Swiper custom styles to match DevOps theme */
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-pagination-bullet {
+  background: var(--color-devops-gray) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--color-devops-cyan) !important;
+}

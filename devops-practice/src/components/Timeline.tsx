@@ -68,6 +68,13 @@ const concepts = [
     tool: 'YAML & JSON',
     description: 'Formatos de serialización de datos estándar para definir pipelines, contenedores y recursos.',
     icon: <FileJson size={40} className="text-[#43B02A]" />
+  },
+  {
+    id: 9,
+    title: 'Gestión de Eventos',
+    tool: 'SIEM',
+    description: 'Recopilación y análisis centralizado de logs y eventos de seguridad para respuesta a incidentes.',
+    icon: <Activity size={40} className="text-[#00B4D8]" />
   }
 ];
 

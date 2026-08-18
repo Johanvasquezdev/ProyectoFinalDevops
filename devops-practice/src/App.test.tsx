@@ -25,7 +25,7 @@ describe('DevOps App Tests', () => {
 
     // Check if tools are rendered
     expect(screen.getByText('Git & GitHub')).toBeInTheDocument();
-    expect(screen.getByText('Docker')).toBeInTheDocument();
-    expect(screen.getByText('Kubernetes')).toBeInTheDocument();
+    expect(screen.getAllByText('Docker')[0]).toBeInTheDocument();
+    expect(screen.getAllByText('Kubernetes')[0]).toBeInTheDocument();
   });
 });

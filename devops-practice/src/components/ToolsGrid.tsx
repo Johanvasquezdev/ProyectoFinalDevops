@@ -13,12 +13,16 @@ import {
   Kanban, 
   MessageSquare, 
   FileText, 
-  Briefcase
+  Briefcase,
+  Box,
+  Hexagon
 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const toolsList = [
+  { name: 'Docker', desc: 'Plataforma líder para crear, desplegar y ejecutar aplicaciones en contenedores.', icon: <Box size={28} className="text-[#2496ED]" /> },
+  { name: 'Kubernetes', desc: 'Sistema open-source de orquestación de contenedores para automatizar el despliegue.', icon: <Hexagon size={28} className="text-[#326CE5]" /> },
   { name: 'GitHub Actions', desc: 'Automatización y CI/CD nativo de GitHub.', icon: <Play size={28} className="text-[#2088FF]" /> },
   { name: 'Azure DevOps', desc: 'Plataforma integral de Microsoft para planificar, colaborar y desplegar.', icon: <Briefcase size={28} className="text-[#0078D7]" /> },
   { name: 'Jenkins', desc: 'Servidor open-source líder en automatización de pipelines CI/CD.', icon: <Settings size={28} className="text-[#D33833]" /> },

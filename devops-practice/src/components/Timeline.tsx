@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { GitBranch, RefreshCcw, Box, Server, Cloud, Activity } from 'lucide-react';
+import { GitBranch, RefreshCcw, Box, Server, Cloud, Activity, Shield, FileJson } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -43,7 +43,7 @@ const concepts = [
   },
   {
     id: 5,
-    title: 'Infraestructura como Código',
+    title: 'Infraestructura',
     tool: 'Terraform',
     description: 'Aprovisionamiento y gestión de infraestructura en la nube mediante archivos de definición.',
     icon: <Cloud size={40} className="text-[#7B42BC]" />
@@ -51,9 +51,23 @@ const concepts = [
   {
     id: 6,
     title: 'Monitoreo',
-    tool: 'Prometheus & Grafana',
+    tool: 'Prometheus',
     description: 'Recolección de métricas, visualización y alertas para mantener la salud de los sistemas.',
     icon: <Activity size={40} className="text-[#E6522C]" />
+  },
+  {
+    id: 7,
+    title: 'Seguridad Continua',
+    tool: 'DevSecOps',
+    description: 'Integración de análisis de vulnerabilidades y seguridad desde las primeras etapas del desarrollo.',
+    icon: <Shield size={40} className="text-[#FFD700]" />
+  },
+  {
+    id: 8,
+    title: 'Configuración',
+    tool: 'YAML & JSON',
+    description: 'Formatos de serialización de datos estándar para definir pipelines, contenedores y recursos.',
+    icon: <FileJson size={40} className="text-[#43B02A]" />
   }
 ];
 

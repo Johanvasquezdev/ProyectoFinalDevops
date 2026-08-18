@@ -1,6 +1,7 @@
 import Hero from './components/Hero';
 import Timeline from './components/Timeline';
 import Benefits from './components/Benefits';
+import ToolsGrid from './components/ToolsGrid';
 import Pipeline from './components/Pipeline';
 import Footer from './components/Footer';
 
@@ -10,6 +11,7 @@ function App() {
       <Hero />
       <Benefits />
       <Timeline />
+      <ToolsGrid />
       <Pipeline />
       <Footer />
     </main>

@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 const Pipeline = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const stepsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const circlesRef = useRef<(HTMLDivElement | null)[]>([]);
   const horizontalLinesRef = useRef<(HTMLDivElement | null)[]>([]);
   const verticalLinesRef = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -24,7 +25,8 @@ const Pipeline = () => {
       });
 
       // Primero ocultamos todos los elementos al inicio del ciclo
-      tl.set(stepsRef.current, { scale: 0.8, opacity: 0.5, borderColor: 'rgba(255,255,255,0.1)' });
+      tl.set(stepsRef.current, { scale: 0.8, opacity: 0.5 });
+      tl.set(circlesRef.current, { borderColor: 'rgba(255,255,255,0.1)' });
       tl.set(horizontalLinesRef.current, { width: 0, opacity: 0 });
       tl.set(verticalLinesRef.current, { height: 0, opacity: 0 });
 
@@ -32,7 +34,12 @@ const Pipeline = () => {
         // Animate the step node (encenderlo)
         tl.to(
           step,
-          { scale: 1.1, opacity: 1, borderColor: '#22c55e', duration: 0.4, ease: 'back.out(1.7)' }
+          { scale: 1.1, opacity: 1, duration: 0.4, ease: 'back.out(1.7)' }
+        );
+        tl.to(
+          circlesRef.current[index],
+          { borderColor: '#22c55e', boxShadow: '0 0 20px rgba(34,197,94,0.4)', duration: 0.4 },
+          '<'
         );
         tl.to(
           step,
@@ -111,9 +118,12 @@ const Pipeline = () => {
                 {/* Nodo del pipeline */}
                 <div 
                   ref={el => stepsRef.current[index] = el}
-                  className="flex flex-col items-center z-10 transition-colors duration-300 border-2 rounded-full border-transparent"
+                  className="flex flex-col items-center z-10"
                 >
-                  <div className={`w-20 h-20 rounded-full bg-[#0A192F] backdrop-blur-md flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)] mb-4 ${step.color} relative z-10`}>
+                  <div 
+                    ref={el => circlesRef.current[index] = el}
+                    className={`w-20 h-20 rounded-full bg-[#0A192F] backdrop-blur-md flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)] mb-4 ${step.color} relative z-10 border-2 border-transparent transition-colors duration-300`}
+                  >
                     {step.icon}
                   </div>
                   <span className="font-mono font-bold text-white tracking-wider bg-[var(--color-devops-bg)] px-2">{step.name}</span>

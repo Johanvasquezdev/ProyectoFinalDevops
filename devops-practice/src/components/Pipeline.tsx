@@ -71,7 +71,7 @@ const Pipeline = () => {
                     <div className="absolute inset-0 bg-[#112240]"></div>
                     <div 
                       ref={el => linesRef.current[index] = el}
-                      className="absolute inset-y-0 left-0 bg-gradient-to-r from-[var(--color-devops-cyan)] to-blue-500"
+                      className="absolute inset-y-0 left-0 bg-gradient-to-r from-[var(--color-devops-cyan)] to-[var(--color-devops-lavender)]"
                     ></div>
                   </div>
                 )}
@@ -81,7 +81,7 @@ const Pipeline = () => {
                   <div className="md:hidden absolute top-[5.5rem] left-[50%] -translate-x-1/2 h-16 w-1 z-0 bg-[#112240]">
                     <div 
                       ref={el => linesRef.current[index] = el}
-                      className="absolute inset-x-0 top-0 w-full bg-gradient-to-b from-[var(--color-devops-cyan)] to-blue-500"
+                      className="absolute inset-x-0 top-0 w-full bg-gradient-to-b from-[var(--color-devops-cyan)] to-[var(--color-devops-lavender)]"
                     ></div>
                   </div>
                 )}

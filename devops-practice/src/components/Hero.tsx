@@ -49,7 +49,7 @@ const Hero = () => {
       ref={heroRef} 
       className="min-h-screen flex flex-col items-center relative overflow-hidden bg-[var(--color-devops-bg)] pt-20"
     >
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[var(--color-devops-cyan)] via-[var(--color-devops-bg)] to-[var(--color-devops-bg)] pointer-events-none" />
+      <div className="absolute inset-0 opacity-15 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[var(--color-devops-lavender)] via-[var(--color-devops-cyan)] to-[var(--color-devops-bg)] pointer-events-none" />
       
       <div className="flex-1 flex flex-col justify-center items-center relative z-10 text-center px-4 w-full max-w-5xl">
         

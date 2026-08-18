@@ -1,11 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-devops-blue: #0A192F;
-  --color-devops-cyan: #64FFDA;
-  --color-devops-gray: #8892B0;
-  --color-devops-lightgray: #CCD6F6;
-  --color-devops-bg: #0B1120;
+  --color-devops-blue: #16162C;
+  --color-devops-cyan: #22D3EE;
+  --color-devops-lavender: #C084FC;
+  --color-devops-gray: #9CA3AF;
+  --color-devops-lightgray: #E2E8F0;
+  --color-devops-bg: #0B0B1A;
 }
 
 body {

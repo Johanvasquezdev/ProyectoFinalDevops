@@ -99,7 +99,7 @@ const Pipeline = () => {
                   <div className="hidden md:block absolute top-10 left-[50%] w-full h-1 z-0">
                     <div className="absolute inset-0 bg-[var(--color-devops-blue)]/30 backdrop-blur-sm rounded-full"></div>
                     <div 
-                      ref={el => horizontalLinesRef.current[index] = el}
+                      ref={el => { horizontalLinesRef.current[index] = el; }}
                       className="absolute inset-y-0 left-0 bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.8)]"
                     ></div>
                   </div>
@@ -109,7 +109,7 @@ const Pipeline = () => {
                 {index < steps.length - 1 && (
                   <div className="md:hidden absolute top-[5.5rem] left-[50%] -translate-x-1/2 h-16 w-1 z-0 bg-[var(--color-devops-blue)]/30 backdrop-blur-sm rounded-full">
                     <div 
-                      ref={el => verticalLinesRef.current[index] = el}
+                      ref={el => { verticalLinesRef.current[index] = el; }}
                       className="absolute inset-x-0 top-0 w-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.8)]"
                     ></div>
                   </div>
@@ -117,11 +117,11 @@ const Pipeline = () => {
 
                 {/* Nodo del pipeline */}
                 <div 
-                  ref={el => stepsRef.current[index] = el}
+                  ref={el => { stepsRef.current[index] = el; }}
                   className="flex flex-col items-center z-10"
                 >
                   <div 
-                    ref={el => circlesRef.current[index] = el}
+                    ref={el => { circlesRef.current[index] = el; }}
                     className={`w-20 h-20 rounded-full bg-[#0A192F] backdrop-blur-md flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)] mb-4 ${step.color} relative z-10 border-2 border-transparent transition-colors duration-300`}
                   >
                     {step.icon}

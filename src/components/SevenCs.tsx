@@ -62,7 +62,7 @@ const SevenCs = () => {
           {phases.map((phase, index) => (
             <div 
               key={phase.id}
-              ref={el => cardsRef.current[index] = el}
+              ref={el => { cardsRef.current[index] = el; }}
               className="relative w-40 h-40 md:w-48 md:h-48 group perspective-1000"
             >
               <div className="w-full h-full relative rounded-full bg-[var(--color-devops-blue)]/50 backdrop-blur-md flex flex-col items-center justify-center p-4 border border-white/10 bg-clip-padding group-hover:scale-105 transition-transform duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">

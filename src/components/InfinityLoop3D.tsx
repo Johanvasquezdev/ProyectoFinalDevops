@@ -26,7 +26,7 @@ export const InfinityLoop3D = () => {
   const meshRefInner = useRef<THREE.Mesh>(null);
   const path = new InfinityCurve(1.2);
   
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (meshRef.current) {
       meshRef.current.rotation.y += delta * 0.3;
       meshRef.current.rotation.z += delta * 0.1;

@@ -47,11 +47,11 @@ const Hero = () => {
   return (
     <section 
       ref={heroRef} 
-      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-[var(--color-devops-bg)] py-20"
+      className="min-h-screen flex flex-col items-center relative overflow-hidden bg-[var(--color-devops-bg)] pt-20"
     >
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[var(--color-devops-cyan)] via-[var(--color-devops-bg)] to-[var(--color-devops-bg)] pointer-events-none" />
       
-      <div className="relative z-10 flex flex-col items-center text-center px-4 w-full max-w-5xl">
+      <div className="flex-1 flex flex-col justify-center items-center relative z-10 text-center px-4 w-full max-w-5xl">
         
         {/* Contenedor del modelo 3D corregido */}
         <div 
@@ -83,7 +83,7 @@ const Hero = () => {
       </div>
       
       {/* Botón / Indicador de Scroll reposicionado y sin interrupciones */}
-      <div className="absolute bottom-8 flex flex-col items-center animate-bounce opacity-70">
+      <div className="mt-8 mb-8 flex flex-col items-center animate-bounce opacity-70 relative z-10">
         <span className="text-[var(--color-devops-gray)] uppercase tracking-widest text-[10px] md:text-xs font-semibold mb-2">
           Scroll para explorar
         </span>

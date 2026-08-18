@@ -59,38 +59,44 @@ const Pipeline = () => {
           </p>
         </div>
 
-        <div className="relative mt-20 mb-10">
+        <div className="relative mt-20 mb-10 w-full">
           {/* Contenedor flexible para el pipeline */}
-          <div className="flex flex-col md:flex-row items-center justify-between relative z-10 gap-y-12 md:gap-y-0">
+          <div className="flex flex-col md:flex-row w-full relative z-10 gap-y-16 md:gap-y-0">
             {steps.map((step, index) => (
-              <div key={index} className="flex flex-col md:flex-row items-center w-full relative">
+              <div key={index} className="flex-1 flex flex-col items-center relative group">
                 
-                {/* Nodo del pipeline */}
-                <div 
-                  ref={el => stepsRef.current[index] = el}
-                  className="flex flex-col items-center z-10"
-                >
-                  <div className={`w-20 h-20 rounded-full bg-[#112240] border-2 border-[var(--color-devops-cyan)] flex items-center justify-center shadow-[0_0_15px_rgba(100,255,218,0.2)] mb-4 ${step.color}`}>
-                    {step.icon}
-                  </div>
-                  <span className="font-mono font-bold text-white tracking-wider">{step.name}</span>
-                </div>
-
-                {/* Línea conectora (oculta en el último elemento) */}
+                {/* Línea conectora horizontal (oculta en el último elemento) */}
                 {index < steps.length - 1 && (
-                  <div className="hidden md:block flex-grow mx-4 relative h-1">
-                    <div className="absolute inset-0 bg-[#112240] rounded-full"></div>
+                  <div className="hidden md:block absolute top-10 left-[50%] w-full h-1 z-0">
+                    <div className="absolute inset-0 bg-[#112240]"></div>
                     <div 
                       ref={el => linesRef.current[index] = el}
-                      className="absolute inset-y-0 left-0 bg-gradient-to-r from-[var(--color-devops-cyan)] to-blue-500 rounded-full"
+                      className="absolute inset-y-0 left-0 bg-gradient-to-r from-[var(--color-devops-cyan)] to-blue-500"
                     ></div>
                   </div>
                 )}
 
                 {/* Línea conectora vertical para versión móvil */}
                 {index < steps.length - 1 && (
-                  <div className="md:hidden h-12 w-1 my-2 bg-gradient-to-b from-[var(--color-devops-cyan)] to-blue-500 rounded-full"></div>
+                  <div className="md:hidden absolute top-[5.5rem] left-[50%] -translate-x-1/2 h-16 w-1 z-0 bg-[#112240]">
+                    <div 
+                      ref={el => linesRef.current[index] = el}
+                      className="absolute inset-x-0 top-0 w-full bg-gradient-to-b from-[var(--color-devops-cyan)] to-blue-500"
+                    ></div>
+                  </div>
                 )}
+
+                {/* Nodo del pipeline */}
+                <div 
+                  ref={el => stepsRef.current[index] = el}
+                  className="flex flex-col items-center z-10"
+                >
+                  <div className={`w-20 h-20 rounded-full bg-[#112240] border-2 border-[var(--color-devops-cyan)] flex items-center justify-center shadow-[0_0_15px_rgba(100,255,218,0.2)] mb-4 ${step.color} relative z-10`}>
+                    {step.icon}
+                  </div>
+                  <span className="font-mono font-bold text-white tracking-wider bg-[var(--color-devops-bg)] px-2">{step.name}</span>
+                </div>
+                
               </div>
             ))}
           </div>

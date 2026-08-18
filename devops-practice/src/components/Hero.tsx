@@ -83,7 +83,7 @@ const Hero = () => {
       </div>
       
       {/* Botón / Indicador de Scroll reposicionado y sin interrupciones */}
-      <div className="mt-8 mb-8 flex flex-col items-center animate-bounce opacity-70 relative z-10">
+      <div className="mt-8 mb-8 flex flex-col items-center animate-pulse opacity-70 relative z-10 transition-opacity duration-700 ease-out hover:opacity-100">
         <span className="text-[var(--color-devops-gray)] uppercase tracking-widest text-[10px] md:text-xs font-semibold mb-2">
           Scroll para explorar
         </span>

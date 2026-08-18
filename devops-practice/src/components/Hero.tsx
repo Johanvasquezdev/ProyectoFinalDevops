@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { Terminal } from 'lucide-react';
+import { Canvas } from '@react-three/fiber';
+import { Environment, OrbitControls } from '@react-three/drei';
+import { InfinityLoop3D } from './InfinityLoop3D';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -15,8 +17,8 @@ const Hero = () => {
 
       tl.fromTo(
         iconRef.current,
-        { scale: 0, rotation: -180, opacity: 0 },
-        { scale: 1, rotation: 0, opacity: 1, duration: 1 }
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 1.2, ease: 'elastic.out(1, 0.5)' }
       )
         .fromTo(
           titleRef.current,
@@ -31,10 +33,11 @@ const Hero = () => {
           '-=0.6'
         );
         
-      // Continuous floating animation for the icon
+      // We removed the yoyo floating from GSAP for the iconRef because 
+      // the 3D model handles its own rotation, but we can still float the container slightly.
       gsap.to(iconRef.current, {
-        y: -15,
-        duration: 2,
+        y: -10,
+        duration: 3,
         yoyo: true,
         repeat: -1,
         ease: 'sine.inOut',
@@ -51,9 +54,16 @@ const Hero = () => {
     >
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[var(--color-devops-cyan)] via-[var(--color-devops-bg)] to-[var(--color-devops-bg)]" />
       
-      <div className="relative z-10 flex flex-col items-center text-center px-4">
-        <div ref={iconRef} className="mb-6 p-4 rounded-full bg-[var(--color-devops-blue)] border-2 border-[var(--color-devops-cyan)] shadow-[0_0_15px_rgba(100,255,218,0.5)]">
-          <Terminal size={64} className="text-[var(--color-devops-cyan)]" />
+      <div className="relative z-10 flex flex-col items-center text-center px-4 w-full">
+        {/* Contenedor del modelo 3D de Three.js */}
+        <div ref={iconRef} className="w-full max-w-lg h-64 md:h-80 mb-2 relative cursor-grab active:cursor-grabbing">
+          <Canvas camera={{ position: [0, 0, 10], fov: 45 }}>
+            <ambientLight intensity={0.5} />
+            <directionalLight position={[10, 10, 10]} intensity={1} />
+            <pointLight position={[-10, -10, -10]} color="#64FFDA" intensity={2} />
+            <InfinityLoop3D />
+            <OrbitControls enableZoom={false} autoRotate={false} />
+          </Canvas>
         </div>
         
         <h1 

@@ -8,32 +8,54 @@ gsap.registerPlugin(ScrollTrigger);
 const Pipeline = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const stepsRef = useRef<(HTMLDivElement | null)[]>([]);
-  const linesRef = useRef<(HTMLDivElement | null)[]>([]);
+  const horizontalLinesRef = useRef<(HTMLDivElement | null)[]>([]);
+  const verticalLinesRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Creamos un timeline que se repita infinitamente para simular el ciclo continuo CI/CD
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 60%',
-        }
+          start: 'top 70%',
+        },
+        repeat: -1, // Repetición infinita
+        repeatDelay: 1 // Espera 1 segundo antes de reiniciar
       });
 
+      // Primero ocultamos todos los elementos al inicio del ciclo
+      tl.set(stepsRef.current, { scale: 0.8, opacity: 0.5, borderColor: 'rgba(255,255,255,0.1)' });
+      tl.set(horizontalLinesRef.current, { width: 0, opacity: 0 });
+      tl.set(verticalLinesRef.current, { height: 0, opacity: 0 });
+
       stepsRef.current.forEach((step, index) => {
-        // Animate the step node
-        tl.fromTo(
+        // Animate the step node (encenderlo)
+        tl.to(
           step,
-          { scale: 0, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.7)' }
+          { scale: 1.1, opacity: 1, borderColor: '#22c55e', duration: 0.4, ease: 'back.out(1.7)' }
+        );
+        tl.to(
+          step,
+          { scale: 1, duration: 0.2, ease: 'power1.out' }
         );
 
         // Animate the connecting line if it exists
-        if (linesRef.current[index]) {
-          tl.fromTo(
-            linesRef.current[index],
-            { width: 0, opacity: 0 },
-            { width: '100%', opacity: 1, duration: 0.4, ease: 'power1.inOut' }
-          );
+        if (index < stepsRef.current.length - 1) {
+          if (horizontalLinesRef.current[index]) {
+            tl.fromTo(
+              horizontalLinesRef.current[index],
+              { width: 0, opacity: 0 },
+              { width: '100%', opacity: 1, duration: 0.5, ease: 'power1.inOut' }
+            );
+          }
+          if (verticalLinesRef.current[index]) {
+            tl.fromTo(
+              verticalLinesRef.current[index],
+              { height: 0, opacity: 0 },
+              { height: '100%', opacity: 1, duration: 0.5, ease: 'power1.inOut' },
+              '<' // Ejecutar al mismo tiempo que la línea horizontal
+            );
+          }
         }
       });
     }, sectionRef);
@@ -70,8 +92,8 @@ const Pipeline = () => {
                   <div className="hidden md:block absolute top-10 left-[50%] w-full h-1 z-0">
                     <div className="absolute inset-0 bg-[var(--color-devops-blue)]/30 backdrop-blur-sm rounded-full"></div>
                     <div 
-                      ref={el => linesRef.current[index] = el}
-                      className="absolute inset-y-0 left-0 bg-gradient-to-r from-[var(--color-devops-cyan)] to-[var(--color-devops-lavender)]"
+                      ref={el => horizontalLinesRef.current[index] = el}
+                      className="absolute inset-y-0 left-0 bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.8)]"
                     ></div>
                   </div>
                 )}
@@ -80,8 +102,8 @@ const Pipeline = () => {
                 {index < steps.length - 1 && (
                   <div className="md:hidden absolute top-[5.5rem] left-[50%] -translate-x-1/2 h-16 w-1 z-0 bg-[var(--color-devops-blue)]/30 backdrop-blur-sm rounded-full">
                     <div 
-                      ref={el => linesRef.current[index] = el}
-                      className="absolute inset-x-0 top-0 w-full bg-gradient-to-b from-[var(--color-devops-cyan)] to-[var(--color-devops-lavender)]"
+                      ref={el => verticalLinesRef.current[index] = el}
+                      className="absolute inset-x-0 top-0 w-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.8)]"
                     ></div>
                   </div>
                 )}
@@ -89,9 +111,9 @@ const Pipeline = () => {
                 {/* Nodo del pipeline */}
                 <div 
                   ref={el => stepsRef.current[index] = el}
-                  className="flex flex-col items-center z-10"
+                  className="flex flex-col items-center z-10 transition-colors duration-300 border-2 rounded-full border-transparent"
                 >
-                  <div className={`w-20 h-20 rounded-full bg-[var(--color-devops-blue)]/60 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-[0_0_15px_rgba(100,255,218,0.2)] mb-4 ${step.color} relative z-10`}>
+                  <div className={`w-20 h-20 rounded-full bg-[#0A192F] backdrop-blur-md flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)] mb-4 ${step.color} relative z-10`}>
                     {step.icon}
                   </div>
                   <span className="font-mono font-bold text-white tracking-wider bg-[var(--color-devops-bg)] px-2">{step.name}</span>

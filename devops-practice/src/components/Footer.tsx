@@ -12,7 +12,8 @@ const Footer = () => {
 
         <div className="text-[var(--color-devops-gray)] text-sm text-center md:text-left mb-6 md:mb-0">
           <p>© {new Date().getFullYear()} Práctica Final DevOps.</p>
-          <p className="mt-1">Construido con React, Vite, Tailwind CSS, Three.js & GSAP.</p>
+          <p className="mt-1">Hecho por <span className="text-white font-semibold">Johan Gabriel Vasquez Camacho</span>.</p>
+          <p className="mt-1 opacity-70">Construido con React, Vite, Tailwind CSS, Three.js & GSAP.</p>
         </div>
 
         <div className="flex space-x-6">
